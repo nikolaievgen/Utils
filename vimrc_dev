@@ -25,16 +25,15 @@ set exrc
 " в вашем 
 " ~/.vimrc после запрещаемых команд, таких как write)
 set secure 
-
 " ------------------------------------------------------------------------
-command -nargs=0 -bar Update 
-	\|	if &modified
-	\|	if empty(bufname('%'))
-	\|		browse confirm write
-	\|	else
-	\|		confirm write
-	\|	endif
-nnoremap <f2>s :<c-u>Update<cr>
+"command -nargs=0 -bar Update 
+"	\|	if &modified
+"	\|	if empty(bufname('%'))
+"	\|		browse confirm write
+"	\|	else
+"       \|		confirm write
+"	\|	endif
+"nnoremap <f2>s :<c-u>Update<cr>
 
 " Navig between tabs
 nnoremap <f8> :tabn<CR>
@@ -52,4 +51,24 @@ nnoremap <c-insert> yy<cr>
 nnoremap <c-delete> dd<cr>
 nnoremap <s-insert> p<cr>
 
-"
+" Shift select
+nnoremap <s-up> v<up>
+nnoremap <s-down> v<down>
+nnoremap <s-left> v<left>
+nnoremap <s-right> v<right>
+vnoremap <s-up> <up>
+vnoremap <s-down> <down>
+vnoremap <s-left> <left>
+vnoremap <s-right> <right>
+inoremap <s-up> <esc>v<up>
+inoremap <s-down> <esc>v<down>
+inoremap <s-left> <esc>v<left>
+inoremap <s-right> <esc>v<right>
+
+" Copy, Paste 
+vnoremap <s-c> y<esc>i
+vnoremap <s-x> d<esc>i
+noremap <s-v> pi
+imap <s-v> <esc>pi
+imap <s-z> <esc>ui
+imap <c-v> <esc>pi
