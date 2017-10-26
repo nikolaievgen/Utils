@@ -1,0 +1,55 @@
+set nocompatible              " be improved, required for Vundle
+filetype off                  " required for Vundle
+ 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+ 
+" User defined plugins
+Plugin 'SirVer/ultisnips'                                                    
+Plugin 'honza/vim-snippets'                                                   
+Plugin 'scrooloose/nerdtree'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" Put your non-Plugin stuff after this line
+" Позволим конфигурационным файлам в проекте изменять настройки vim'a
+" Включим чтение конфигурационных файлов .vimrc в текущей директории
+set exrc                                                                     
+" Запретим опасные команды в локальных .vimrc файлах (эта опция должна идти
+" в вашем 
+" ~/.vimrc после запрещаемых команд, таких как write)
+set secure 
+
+" ------------------------------------------------------------------------
+command -nargs=0 -bar Update 
+	\|	if &modified
+	\|	if empty(bufname('%'))
+	\|		browse confirm write
+	\|	else
+	\|		confirm write
+	\|	endif
+nnoremap <f2>s :<c-u>Update<cr>
+
+" Navig between tabs
+nnoremap <f8> :tabn<CR>
+nnoremap <s-f8> :tabp<CR>
+nnoremap <f2> :NERDTreeToggle<CR>
+" Navig windows
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+"
+nnoremap <f2>w :w<cr>
+nnoremap <f2>r :so %<cr>
+nnoremap <c-insert> yy<cr>
+nnoremap <c-delete> dd<cr>
+nnoremap <s-insert> p<cr>
+
+"
