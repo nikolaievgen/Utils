@@ -26,6 +26,14 @@ set exrc
 " ~/.vimrc после запрещаемых команд, таких как write)
 set secure 
 " ------------------------------------------------------------------------
+" Search settings
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+"vnoremap <expr> // 'y/\'.escape(@",'\').'<CR>'
+vnoremap // y/<C-R>"<CR>
+
 "command -nargs=0 -bar Update 
 "	\|	if &modified
 "	\|	if empty(bufname('%'))
