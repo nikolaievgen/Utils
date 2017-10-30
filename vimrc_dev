@@ -31,6 +31,13 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
+
+" set variables
+set showcmd
+set cursorline
+set showmode
+colorscheme desert
+
 "vnoremap <expr> // 'y/\'.escape(@",'\').'<CR>'
 vnoremap // y/<C-R>"<CR>
 
@@ -52,12 +59,13 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+
 "
 nnoremap <f2>w :w<cr>
 nnoremap <f2>r :so %<cr>
-nnoremap <c-insert> yy<cr>
-nnoremap <c-delete> dd<cr>
-nnoremap <s-insert> p<cr>
+"nnoremap <c-insert> yy<cr>
+"nnoremap <c-delete> dd<cr>
+"nnoremap <s-insert> p<cr>
 
 " Shift select
 nnoremap <s-up> v<up>
