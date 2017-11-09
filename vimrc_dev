@@ -88,9 +88,12 @@ inoremap <s-left> <esc>v<left>
 inoremap <s-right> <esc>v<right>
 
 " Copy, Paste 
-vnoremap <s-c> y<esc>i
-vnoremap <s-x> d<esc>i
+vnoremap <c-c> y<esc>i
+vnoremap <c-x> d<esc>i
 " noremap <s-v> pi
 " imap <s-v> <esc>pi
 " imap <s-z> <esc>ui
 " imap <c-v> <esc>pi
+
+nnoremap <silent> <f5> :exe "resize ".(winheight(0)*3/2)<CR>
+nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
