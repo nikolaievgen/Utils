@@ -30,6 +30,10 @@ set secure
 " ------------------------------------------------------------------------
 " MY Settings
 " ------------------------------------------------------------------------
+" encodings
+set encoding=utf-8
+set fileencoding=utf-8
+
 " Search settings
 set hlsearch
 set ignorecase
@@ -97,3 +101,5 @@ vnoremap <c-x> d<esc>i
 
 nnoremap <silent> <f5> :exe "resize ".(winheight(0)*3/2)<CR>
 nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
+nnoremap <silent> <s-f5> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
+nnoremap <silent> <s-f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
