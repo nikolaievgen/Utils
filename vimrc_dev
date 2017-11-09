@@ -9,11 +9,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
  
 " User defined plugins
-Plugin 'SirVer/ultisnips'                                                    
-Plugin 'honza/vim-snippets'                                                   
+"Plugin 'SirVer/ultisnips'                                                    
+"Plugin 'honza/vim-snippets'                                                   
 Plugin 'scrooloose/nerdtree'
-Plugin 'Rip-Rip/clang_complete'
+"Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,8 +32,15 @@ set secure
 " MY Settings
 " ------------------------------------------------------------------------
 " encodings
-set encoding=utf-8
-set fileencoding=utf-8
+"set encoding=utf-8
+"set fileencoding=utf-8
+
+" Backspace enable
+set backspace=indent,eol,start
+
+set colorcolumn=110
+" highlight ColorColumn ctermbg=darkgray
+highlight ColorColumn ctermbg=black
 
 " Search settings
 set hlsearch
@@ -45,6 +53,10 @@ set showcmd
 set cursorline
 set showmode
 colorscheme desert
+syntax on
+
+" Include files under cursor
+" let &path.="r:\Projects\Amigo\1\amigo_browser_38\src\chrome\browser\amigo,"
 
 " in visual mode search selection by type //
 "vnoremap <expr> // 'y/\'.escape(@",'\').'<CR>'
