@@ -1,10 +1,11 @@
 set nocompatible              " be improved, required for Vundle
 filetype off                  " required for Vundle
  
+" vundle plugin settings
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" " let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
  
 " User defined plugins
@@ -16,6 +17,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " Позволим конфигурационным файлам в проекте изменять настройки vim'a
@@ -25,6 +27,8 @@ set exrc
 " в вашем 
 " ~/.vimrc после запрещаемых команд, таких как write)
 set secure 
+" ------------------------------------------------------------------------
+" MY Settings
 " ------------------------------------------------------------------------
 " Search settings
 set hlsearch
@@ -38,6 +42,7 @@ set cursorline
 set showmode
 colorscheme desert
 
+" in visual mode search selection by type //
 "vnoremap <expr> // 'y/\'.escape(@",'\').'<CR>'
 vnoremap // y/<C-R>"<CR>
 
@@ -50,11 +55,12 @@ vnoremap // y/<C-R>"<CR>
 "	\|	endif
 "nnoremap <f2>s :<c-u>Update<cr>
 
+" Navigations
 " Navig between tabs
 nnoremap <f8> :tabn<CR>
 nnoremap <s-f8> :tabp<CR>
 nnoremap <f2> :NERDTreeToggle<CR>
-" Navig windows
+" Navig between windows
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -84,7 +90,7 @@ inoremap <s-right> <esc>v<right>
 " Copy, Paste 
 vnoremap <s-c> y<esc>i
 vnoremap <s-x> d<esc>i
-noremap <s-v> pi
-imap <s-v> <esc>pi
-imap <s-z> <esc>ui
-imap <c-v> <esc>pi
+" noremap <s-v> pi
+" imap <s-v> <esc>pi
+" imap <s-z> <esc>ui
+" imap <c-v> <esc>pi
