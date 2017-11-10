@@ -15,6 +15,7 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,28 +33,61 @@ set secure
 " MY Settings
 " ------------------------------------------------------------------------
 " encodings
-"set encoding=utf-8
-"set fileencoding=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 
 " Backspace enable
 set backspace=indent,eol,start
 
-set colorcolumn=110
-" highlight ColorColumn ctermbg=darkgray
-highlight ColorColumn ctermbg=black
-
+" Tab settings
+" Отступы пробелами, а не табуляциями
+set expandtab
+" Ширина строки 80 символов
+set textwidth=80
+" Ширина табуляции в колонках
+set ts=2
+" Количество пробелов (колонок) одного отступа
+set shiftwidth=2
+" Новая строка будет с тем же отступом, что и предыдущая
+set autoindent
+" Умная расстановка отступов (например, отступ при начале нового блока)
+set smartindent
+" Change font call dlg
+" set guifont=*
 " Search settings
 set hlsearch
 set ignorecase
 set smartcase
 set incsearch
-
+" Указывать номера строк
+set number
+" Подсветить максимальную ширину строки
+let &colorcolumn=&textwidth
+" Цвет линии - тёмно-серый
+highlight ColorColumn ctermbg=darkgray
+" set colorcolumn=110
+" Включаем bash-подобное дополнение командной строки                        
+set wildmode=longest:list,full
+" Не делать все окна одинакового размера                                    
+set noequalalways                                                          
+" Высота окон по-умолчанию 20 строк                                         
+set winheight=20
+" С/C++ файлы
+" Расставлять отступы в стиле С
+autocmd filetype c,cpp set cin 
+" Открывать дерево по нажаить Ctrl+n
+" map <c-n> :NERDTreeToggle<cr>
+" Открывать новые окна справа
+set splitright
+" 
 " set variables
 set showcmd
 set cursorline
 set showmode
 colorscheme desert
 syntax on
+
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 " Include files under cursor
 " let &path.="r:\Projects\Amigo\1\amigo_browser_38\src\chrome\browser\amigo,"
@@ -111,7 +145,25 @@ vnoremap <c-x> d<esc>i
 " imap <s-z> <esc>ui
 " imap <c-v> <esc>pi
 
+" New lines
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 nnoremap <silent> <f5> :exe "resize ".(winheight(0)*3/2)<CR>
 nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
 nnoremap <silent> <s-f5> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
 nnoremap <silent> <s-f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
+
+" Line above in insert mode
+inoremap aO <esc>O
+inoremap ao <esc>o
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+nmap <leader>wq :wqa!<cr>
+
