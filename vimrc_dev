@@ -32,8 +32,9 @@ set secure
 " ------------------------------------------------------------------------
 " MY Settings
 " ------------------------------------------------------------------------
-"
-"
+" No confirm when change buffer
+set hidden
+
 " encodings
 set encoding=utf-8
 set fileencoding=utf-8
