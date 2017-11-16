@@ -32,9 +32,6 @@ set secure
 " ------------------------------------------------------------------------
 " MY Settings
 " ------------------------------------------------------------------------
-" No confirm when change buffer
-set hidden
-
 " encodings
 set encoding=utf-8
 set fileencoding=utf-8
@@ -150,7 +147,7 @@ vnoremap <c-x> d<esc>i
 
 " New lines
 nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
+"nmap <CR> o<Esc>
 
 nnoremap <silent> <f5> :exe "resize ".(winheight(0)*3/2)<CR>
 nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
@@ -170,3 +167,16 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 nmap <leader>wq :wqa!<cr>
 
+" Notes
+" executes
+" :@" - exec vim code yanked
+" :@0 - exec vim code from 0 buffer
+" @: - exec last ex command and again @@
+" 
+" q: | :his - open command line history window
+" ctrl-c ctrl-c - close this window (command line)
+" 
+" Quick vimrc edit
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap ev :vsplit $MYVIMRC<cr>
+nnoremap sv :so %<cr>
