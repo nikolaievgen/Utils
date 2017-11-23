@@ -1,3 +1,5 @@
+" Vimrc for dev
+"
 set nocompatible              " be improved, required for Vundle
 filetype off                  " required for Vundle
  
@@ -181,3 +183,6 @@ nmap <leader>wq :wqa!<cr>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap ev :vsplit $MYVIMRC<cr>
 nnoremap sv :so %<cr>
+" Execute current script
+nnoremap <leader>r :!%:p<cr>
+
