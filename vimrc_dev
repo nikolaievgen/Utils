@@ -38,6 +38,7 @@ set secure
 " encodings
 set encoding=utf-8
 set fileencoding=utf-8
+set autoread
 
 " Backspace enable
 set backspace=indent,eol,start
