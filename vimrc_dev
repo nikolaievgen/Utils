@@ -143,8 +143,6 @@ inoremap <s-right> <esc>v<right>
 "vnoremap <c-x> d<esc>i
 " noremap <s-v> pi
 " imap <s-v> <esc>pi
-" imap <s-z> <esc>ui
-" imap <c-v> <esc>pi
 
 " New lines
 nmap <S-Enter> O<Esc>
@@ -177,11 +175,16 @@ inoremap <leader>aO <esc>O
 inoremap <leader>ao <esc>o
 "
 " Copy, Cut line
-inoremap <leader><c-c> <esc>ddi
-inoremap <leader><c-x> <esc>ddi
-inoremap <leader><c-v> <esc>pi
-
+inoremap <leader>cc <esc>yyi
+inoremap <leader>cx <esc>ddi
+inoremap <leader>cv <esc>Pi
 "
+" Cursor moves
+nnoremap [D B
+nnoremap [A <up>
+nnoremap [C W
+nnoremap [B <down>
+
 " Notes
 " executes
 " :@" - exec vim code yanked
