@@ -1,5 +1,7 @@
 " Vimrc for dev
 "
+"
+
 set nocompatible              " be improved, required for Vundle
 filetype off                  " required for Vundle
  
@@ -13,12 +15,14 @@ Plugin 'gmarik/Vundle.vim'
 " User defined plugins
 "Plugin 'SirVer/ultisnips'                                                    
 "Plugin 'honza/vim-snippets'                                                   
-Plugin 'scrooloose/nerdtree'
 "Plugin 'Rip-Rip/clang_complete'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'valloric/youcompleteme'
-Plugin 'vim-airline/vim-airline'
-Plugin 'mattn/emmet-vim'
+
+
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'valloric/youcompleteme'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -120,13 +124,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-"
-nnoremap <f2>w :w<cr>
-nnoremap <f2>r :so %<cr>
-"nnoremap <c-insert> yy<cr>
-"nnoremap <c-delete> dd<cr>
-"nnoremap <s-insert> p<cr>
-
 " Shift select
 nnoremap <s-up> v<up>
 nnoremap <s-down> v<down>
@@ -142,8 +139,8 @@ inoremap <s-left> <esc>v<left>
 inoremap <s-right> <esc>v<right>
 
 " Copy, Paste 
-vnoremap <c-c> y<esc>i
-vnoremap <c-x> d<esc>i
+"vnoremap <c-c> y<esc>i
+"vnoremap <c-x> d<esc>i
 " noremap <s-v> pi
 " imap <s-v> <esc>pi
 " imap <s-z> <esc>ui
@@ -158,19 +155,33 @@ nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
 nnoremap <silent> <s-f5> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
 nnoremap <silent> <s-f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
 
-" Line above in insert mode
-inoremap aO <esc>O
-inoremap ao <esc>o
-
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
-
+"
 " Fast saving
-nmap <leader>w :w!<cr>
-nmap <leader>wq :wqa!<cr>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>wq :wqa!<cr>
+nnoremap <leader>qa :qa!<cr>
+nnoremap <leader>q :q!<cr>
+" 
+" Quick vimrc edit
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :so %<cr>
+"
+" Run, execute current script
+nnoremap <leader>r :!%:p<cr>
+"
+" Line above in insert mode
+inoremap <leader>aO <esc>O
+inoremap <leader>ao <esc>o
+"
+" Copy, Cut line
+inoremap <leader><c-c> <esc>ddi
+inoremap <leader><c-x> <esc>ddi
+inoremap <leader><c-v> <esc>pi
 
+"
 " Notes
 " executes
 " :@" - exec vim code yanked
@@ -179,11 +190,3 @@ nmap <leader>wq :wqa!<cr>
 " 
 " q: | :his - open command line history window
 " ctrl-c ctrl-c - close this window (command line)
-" 
-" Quick vimrc edit
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap ev :vsplit $MYVIMRC<cr>
-nnoremap sv :so %<cr>
-" Execute current script
-nnoremap <leader>r :!%:p<cr>
-
