@@ -14,7 +14,7 @@ echo CHANGE TO CURR DIR: $(pwd)
 git pull
 
 # Copy to vimrc
-cp -r /var/www/html/second second
+cp -r /var/www/html/second .
 
 # Commit and Push to remote
 git add ./second

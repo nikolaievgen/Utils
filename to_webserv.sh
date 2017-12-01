@@ -12,7 +12,7 @@ echo CHANGE TO CURR DIR: $(pwd)
 git pull
 
 # Copy to www
-cp -r second /var/www/html/second
+cp -r second /var/www/html
 
 # Revert old directory
 cd $old
