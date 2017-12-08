@@ -125,18 +125,18 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 " Shift select
-nnoremap <s-up> v<up>
-nnoremap <s-down> v<down>
-nnoremap <s-left> v<left>
-nnoremap <s-right> v<right>
-vnoremap <s-up> <up>
-vnoremap <s-down> <down>
-vnoremap <s-left> <left>
-vnoremap <s-right> <right>
-inoremap <s-up> <esc>v<up>
-inoremap <s-down> <esc>v<down>
-inoremap <s-left> <esc>v<left>
-inoremap <s-right> <esc>v<right>
+"nnoremap <s-up> v<up>
+"nnoremap <s-down> v<down>
+"nnoremap <s-left> v<left>
+"nnoremap <s-right> v<right>
+"vnoremap <s-up> <up>
+"vnoremap <s-down> <down>
+"vnoremap <s-left> <left>
+"vnoremap <s-right> <right>
+"inoremap <s-up> <esc>v<up>
+"inoremap <s-down> <esc>v<down>
+"inoremap <s-left> <esc>v<left>
+"inoremap <s-right> <esc>v<right>
 
 " Copy, Paste 
 "vnoremap <c-c> y<esc>i
@@ -145,23 +145,24 @@ inoremap <s-right> <esc>v<right>
 " imap <s-v> <esc>pi
 
 " New lines
-nmap <S-Enter> O<Esc>
+nmap <s-cr> O<Esc>
 "nmap <CR> o<Esc>
-
-nnoremap <silent> <f5> :exe "resize ".(winheight(0)*3/2)<CR>
-nnoremap <silent> <f6> :exe "resize ".(winheight(0)*2/3)<CR>
-nnoremap <silent> <s-f5> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
-nnoremap <silent> <s-f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
 let g:mapleader = ","
+
+nnoremap <f5> :exe "resize ".(winheight(0)*3/2)<CR>
+nnoremap <leader><f5> :exe "resize ".(winheight(0)*2/3)<CR>
+nnoremap <f6> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
+nnoremap <leader><f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
+
 "
 " Fast saving
 nnoremap <leader>w :w!<cr>
+nnoremap <leader>q :q!<cr>
 nnoremap <leader>wq :wqa!<cr>
 nnoremap <leader>qa :qa!<cr>
-nnoremap <leader>q :q!<cr>
 " 
 " Quick vimrc edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -180,10 +181,10 @@ inoremap <leader>cx <esc>ddi
 inoremap <leader>cv <esc>Pi
 "
 " Cursor moves
-nnoremap [D B
-nnoremap [A <up>
-nnoremap [C W
-nnoremap [B <down>
+"nnoremap [D B
+"nnoremap [A <up>
+"nnoremap [C W
+"nnoremap [B <down>
 
 " Notes
 " executes
