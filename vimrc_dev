@@ -18,11 +18,11 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'Rip-Rip/clang_complete'
 
 
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'valloric/youcompleteme'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,7 +39,7 @@ set secure
 " ------------------------------------------------------------------------
 " MY Settings
 " ------------------------------------------------------------------------
-" encodings
+
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
