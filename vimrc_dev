@@ -16,11 +16,15 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'SirVer/ultisnips'                                                    
 "Plugin 'honza/vim-snippets'                                                   
 "Plugin 'Rip-Rip/clang_complete'
+"Plugin 'ap/vim-css-color'
+"Plugin 'valloric/youcompleteme'
 
-
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mattn/emmet-vim'
 
