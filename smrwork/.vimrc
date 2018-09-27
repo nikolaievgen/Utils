@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'Python-mode-klen'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,6 +119,12 @@ nnoremap <leader>qa :qa!<cr>
 " Quick vimrc edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :so %<cr>
+
+" Finding
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <CR>
+
+nnoremap gr :grep -r '\b<cword>\b'  %:p:h <CR>
+
 "
 " Run, execute current script
 nnoremap <leader>r :!%:p<cr>
@@ -130,5 +137,8 @@ inoremap <leader>cv <esc>Pi
 
 map <leader>s :NERDTreeFind<cr>
 
+" no help document window
 let g:pymode_doc = 0
+" tags location
+let &tags="./tags,./TAGS,tags,TAGS,/home/n.orgeev/smr1/tags"
 
