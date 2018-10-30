@@ -19,6 +19,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'Python-mode-klen'
 Plugin 'mileszs/ack.vim'
+Plugin 'ericcurtin/CurtineIncSw.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'qpkorr/vim-bufkill'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,7 +125,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :so %<cr>
 
 " Finding
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <CR>
+" map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <CR>
 
 nnoremap gr :grep -r '\b<cword>\b'  %:p:h <CR>
 
@@ -141,4 +145,24 @@ map <leader>s :NERDTreeFind<cr>
 let g:pymode_doc = 0
 " tags location
 let &tags="./tags,./TAGS,tags,TAGS,/home/n.orgeev/smr1/tags"
+
+" show command line menu on tab 
+set wildchar=<Tab> wildmenu wildmode=full
+" switch c++ header / source
+map <leader>ko :call CurtineIncSw() <CR>
+" add include path for gf command
+if isdirectory('/home/n.orgeev/smr1/include')
+      set path+=/home/n.orgeev/smr1/include
+endif
+
+set splitbelow
+set splitright
+set hidden
+
+" change encoding current buffer
+":e ++enc=cp1251
+
+" If installed using git
+set rtp+=~/.fzf
+set formatprg=astyle
 

@@ -33,3 +33,5 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 alias ll='ls -la --color=auto'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
