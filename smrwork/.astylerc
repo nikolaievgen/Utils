@@ -1,0 +1,10 @@
+--style=linux
+--indent=spaces=4
+--max-code-length=120
+--indent-namespaces
+--indent-preproc-define
+
+--pad-oper
+--pad-comma
+--pad-header
+
