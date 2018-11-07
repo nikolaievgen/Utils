@@ -23,6 +23,11 @@ Plugin 'ericcurtin/CurtineIncSw.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'qpkorr/vim-bufkill'
+Plugin 'chiel92/vim-autoformat'
+Plugin 'ervandew/supertab'
+Plugin 'raimondi/delimitmate'
+Plugin 'taglist.vim'
+Plugin 'szw/vim-tags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,7 +46,7 @@ set secure
 " ------------------------------------------------------------------------
 
 set encoding=utf-8
-set fileencoding=utf-8
+set fileencodings=utf8,cp1251
 set autoread
 
 " Backspace enable
@@ -53,9 +58,9 @@ set expandtab
 " Ширина строки 80 символов
 "set textwidth=80
 " Ширина табуляции в колонках
-set ts=2
+set ts=4
 " Количество пробелов (колонок) одного отступа
-set shiftwidth=2
+set shiftwidth=4
 " Новая строка будет с тем же отступом, что и предыдущая
 set autoindent
 " Умная расстановка отступов (например, отступ при начале нового блока)
@@ -108,10 +113,10 @@ nnoremap <c-l> <c-w>l
 let mapleader = ","
 let g:mapleader = ","
 
-nnoremap <f5> :exe "resize ".(winheight(0)*3/2)<CR>
-nnoremap <leader><f5> :exe "resize ".(winheight(0)*2/3)<CR>
-nnoremap <f6> :exe "vertical resize ".(winwidth(0)*3/2)<CR>
-nnoremap <leader><f6> :exe "vertical resize ".(winwidth(0)*2/3)<CR>
+nnoremap <f5> :exe "resize ".(winheight(0)*6/5)<CR>
+nnoremap <leader><f5> :exe "resize ".(winheight(0)*5/6)<CR>
+nnoremap <f6> :exe "vertical resize ".(winwidth(0)*6/5)<CR>
+nnoremap <leader><f6> :exe "vertical resize ".(winwidth(0)*5/6)<CR>
 
 "
 " Fast saving
@@ -144,7 +149,9 @@ map <leader>s :NERDTreeFind<cr>
 " no help document window
 let g:pymode_doc = 0
 " tags location
-let &tags="./tags,./TAGS,tags,TAGS,/home/n.orgeev/smr1/tags"
+" setted in extension ctags
+" let &tags="./tags,./TAGS,tags,TAGS,/home/n.orgeev/smr1/tags"
+let g:vim_tags_auto_generate = 0
 
 " show command line menu on tab 
 set wildchar=<Tab> wildmenu wildmode=full
@@ -166,3 +173,16 @@ set hidden
 set rtp+=~/.fzf
 set formatprg=astyle
 
+" let g:airline_powerline_fonts = 1
+set t_Co=256
+let g:airline_theme='dark'
+" let g:airline_section_c = '%t'
+
+set novisualbell "Не мигать 
+set t_vb= "Не пищать! (Опции 'не портить текст', к сожалению, нету)
+
+let g:formatdef_my_cpp = '"astyle "'
+let g:formatters_cpp = ['my_cpp']
+noremap <leader>f :Autoformat<CR>
+noremap <leader>fv :!astyle<CR>
+noremap <leader>fz :!cat % \| fzf<CR>
