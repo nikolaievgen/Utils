@@ -2,6 +2,8 @@ SHELL := /bin/bash
 LINT_TARGET := src/
 MYPY_TARGET := src/
 DIR := .
+SRC_DIR :=
+DST_DIR :=
 
 .PHONY: all
 all: format lint test
@@ -100,3 +102,7 @@ test:
 .PHONY: dir-names
 dir-names:
 	python -m src.imgs.utils.dir_names $(DIR)
+
+.PHONY: conv-imgs
+conv-imgs:
+	python  -m src.imgs.conv_imgs --src_path $(SRC_DIR) --dst_path $(DST_DIR)

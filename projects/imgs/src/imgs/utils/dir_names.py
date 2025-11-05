@@ -17,11 +17,11 @@ def get_dir_names(inputPath):
 
 
 if __name__ == "__main__":
-    print(sys.argv)
+    print(sys.argv)  # noqa: T201
     if len(sys.argv) != 2:
-        print("Usage: python your_module.py <inputPath>")
+        print("Usage: python your_module.py <inputPath>")  # noqa: T201
         sys.exit(1)
     input_path = sys.argv[1]
     result = get_dir_names(input_path)
     for name in result:
-        print(name)
+        print(name)  # noqa: T201
