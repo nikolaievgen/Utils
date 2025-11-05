@@ -83,6 +83,15 @@ def get_image_date(file_path):
     return datetime.fromtimestamp(t)
 
 
+def copy_file_times(src_file, dst_file):
+    """
+    Копирует время доступа и модификации с src_file на dst_file.
+    Время создания изменить нельзя.
+    """
+    stat = os.stat(src_file)
+    os.utime(dst_file, (stat.st_atime, stat.st_mtime))
+
+
 def convert_photos(src_path, dst_path):
     counter = 1
     for root, dirs, files in os.walk(src_path):
@@ -97,6 +106,7 @@ def convert_photos(src_path, dst_path):
             print(f"Конвертация: {src_file} -> {dst_file}")  # noqa: T201
             try:
                 conv_img(src_file, dst_file)
+                copy_file_times(src_file, dst_file)
                 counter += 1
             except Exception as e:
                 print(f"Ошибка при конвертации {src_file}: {e}")  # noqa: T201
