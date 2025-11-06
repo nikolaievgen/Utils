@@ -47,6 +47,9 @@ def make_img_path(src_path, dst_path, file_path, date_obj, counter):
     rel_path = os.path.relpath(file_path, src_path)
     rel_dirs = os.path.dirname(rel_path).split(os.sep)
 
+    # Проверяем наличие каталога с "whats"
+    has_whats = any("whats" in d.lower() for d in rel_dirs)
+
     filtered_dirs = []
     for d in rel_dirs:
         if not d:
@@ -58,10 +61,15 @@ def make_img_path(src_path, dst_path, file_path, date_obj, counter):
         filtered_dirs.append(d)
 
     year = date_obj.strftime("%Y")
-    month = date_obj.strftime("%m")
-    dst_dir = os.path.join(dst_path, year, month, *filtered_dirs)
-    os.makedirs(dst_dir, exist_ok=True)
 
+    if has_whats:
+        # Без месяца
+        dst_dir = os.path.join(dst_path, year, *filtered_dirs)
+    else:
+        month = date_obj.strftime("%m")
+        dst_dir = os.path.join(dst_path, year, month, *filtered_dirs)
+
+    os.makedirs(dst_dir, exist_ok=True)
     fname = f"IMG_{date_obj.strftime('%Y%m%d')}_{counter}.jpg"
     return os.path.join(dst_dir, fname)
 
