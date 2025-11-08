@@ -32,7 +32,7 @@ def conv_img(src_path, dst_path, quality=80):
 
         exif_dict["thumbnail"] = None
 
-        max_side = 2048
+        max_side = 1920
         w, h = img.size
         scale = min(max_side / w, max_side / h, 1)
         new_size = (int(w * scale), int(h * scale))
