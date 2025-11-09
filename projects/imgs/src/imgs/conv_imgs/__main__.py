@@ -77,7 +77,7 @@ def make_img_path(src_path, dst_path, file_path, date_obj, counter):
 def get_image_date(file_path):
     try:
         img = Image.open(file_path)
-        exif = img.info.get("exif")
+        exif = img.getexif()
         if exif:
             for tag, value in exif.items():
                 decoded = ExifTags.TAGS.get(tag, tag)
