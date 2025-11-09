@@ -81,13 +81,30 @@ def get_image_date(file_path):
         if exif:
             for tag, value in exif.items():
                 decoded = ExifTags.TAGS.get(tag, tag)
-                if decoded == "DateTimeOriginal":
+                if decoded in ["DateTimeOriginal", "DateTime", "DateTimeDigitized"]:
                     print(f"Has image meta info: {file_path}")  # noqa: T201
                     return datetime.strptime(value, "%Y:%m:%d %H:%M:%S")
     except Exception:
-        print(f"No meta info: {file_path}")  # noqa: T201
+        pass  # Некорректная дата, продолжаем
+
+    # Шаблон для имени файла: img_20070408* или img-20070408*
+    base_name = os.path.basename(file_path)
+    pattern = re.compile(r"^(img|IMG|Img|IMG)[_-](\d{4})(\d{2})(\d{2})")
+    match = pattern.match(base_name)
+    if match:
+        year = int(match.group(2))
+        month = int(match.group(3))
+        day = int(match.group(4))
+        try:
+            # Проверяем корректность даты
+            date = datetime(year, month, day)
+            print(f"Has date in filename: {file_path}")  # noqa: T201
+            return date
+        except ValueError:
+            pass  # Некорректная дата, продолжаем
 
     t = os.path.getmtime(file_path)
+    print(f"date by os getmtime: {file_path}")  # noqa: T201
     return datetime.fromtimestamp(t)
 
 
