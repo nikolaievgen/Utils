@@ -25,6 +25,8 @@ def conv_img(src_path, dst_path, quality=80):
         exif_dict = piexif.load(img.info.get("exif", b""))
 
         if piexif.ImageIFD.Orientation in exif_dict["0th"]:
+            orient = exif_dict["0th"][piexif.ImageIFD.Orientation]
+            print(f"Orientation: {orient}")  # noqa: T201
             exif_dict["0th"][piexif.ImageIFD.Orientation] = 1
 
         for tag in [piexif.ImageIFD.ImageWidth, piexif.ImageIFD.ImageLength]:
@@ -118,7 +120,7 @@ def copy_file_times(src_file, dst_file):
 
 
 def convert_photos(src_path, dst_path):
-    counter = 1
+    counter = int(datetime.now().timestamp())
     for root, dirs, files in os.walk(src_path):
         for fname in files:
             src_file = os.path.join(root, fname)
