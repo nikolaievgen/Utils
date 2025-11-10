@@ -24,10 +24,10 @@ def conv_img(src_path, dst_path, quality=80):
         img = img.convert("RGB")
         exif_dict = piexif.load(img.info.get("exif", b""))
 
-        if piexif.ImageIFD.Orientation in exif_dict["0th"]:
-            orient = exif_dict["0th"][piexif.ImageIFD.Orientation]
-            print(f"Orientation: {orient}")  # noqa: T201
-            exif_dict["0th"][piexif.ImageIFD.Orientation] = 1
+        # if piexif.ImageIFD.Orientation in exif_dict["0th"]:
+        #     orient = exif_dict["0th"][piexif.ImageIFD.Orientation]
+        #     print(f"Orientation: {orient}")  # noqa: T201
+        #     exif_dict["0th"][piexif.ImageIFD.Orientation] = 1
 
         for tag in [piexif.ImageIFD.ImageWidth, piexif.ImageIFD.ImageLength]:
             exif_dict["0th"].pop(tag, None)
